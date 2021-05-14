@@ -37,3 +37,15 @@ void push(stack_t **stack, unsigned int line)
 		}
 	}
 }
+
+/**
+ * pall - Prints the stack
+ *
+ * @stack: Given stack
+ *
+ * Return: void
+ */
+void pall(stack_t **stack)
+{
+	print_stack(*stack);
+}
