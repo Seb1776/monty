@@ -38,6 +38,11 @@ typedef struct instruction_s
 #define FUNCTION_OPS { \
 	{"push", push},\
 	{"pall", pall},\
+	{"pint", pint},\
+	{"pop", pop},\
+	{"swap", swap},\
+	{"add", addd},\
+	{"nop", nop},\
 	{NULL, NULL} \
 }
 
@@ -63,5 +68,13 @@ int is_digit(char *string);
 int is_number(char *str);
 stack_t *add_node(stack_t **stack, const int n);
 stack_t *queue_node(stack_t **stack, const int n);
+void pall(stack_t **stack);
+void pint(stack_t **stack, unsigned int line);
+void pop(stack_t **stack, unsigned int line);
+void swap(stack_t **stack, unsigned int line);
+void addd(stack_t **stack, unsigned int line);
+void nop(stack_t **stack, unsigned line);
+size_t print_stack(const stack_t *stack);
+void free_stack(stack_t *stack);
 
 #endif
