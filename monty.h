@@ -36,16 +36,15 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#define FUNCTION_OPS { \
-	{"push", push},\
-	{"pall", pall},\
-	{"pint", pint},\
-	{"pop", pop},\
-	{"swap", swap},\
-	{"add", addd},\
-	{"nop", nop},\
-	{NULL, NULL} \
-}
+#define INSTRUCTIONS { \
+		{"push", push},\
+		{"pall", pall},\
+		{"pint", pint},\
+		{"pop", pop},\
+		{"swap", swap},\
+		{"nop", nop},\
+		{NULL, NULL} \
+	}
 
 /**
 * struct help - argument for the current opcode
@@ -63,6 +62,7 @@ typedef struct help
 help global;
 
 extern int status;
+int status = 0;
 
 void push(stack_t **stack, unsigned int line);
 int is_digit(char *string);
@@ -75,6 +75,9 @@ void pop(stack_t **stack, unsigned int line);
 void swap(stack_t **stack, unsigned int line);
 void addd(stack_t **stack, unsigned int line);
 void nop(stack_t **stack, unsigned line);
+void opcode(stack_t **stack, char *str, unsigned int line);
+void file_error(char *argv);
+void error_usage(void);
 size_t print_stack(const stack_t *stack);
 void free_stack(stack_t *stack);
 
