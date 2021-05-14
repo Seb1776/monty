@@ -65,3 +65,45 @@ void nop(stack_t **stack, unsigned line)
 	(void) stack;
 	(void) line;
 }
+
+/**
+ * opcode - This function manages builtins
+ *
+ * @stack: Given stack
+ * @str: Strings to compare
+ * @line: Line  ammoun
+ *
+ * Return: void 
+ */
+void opcode(stack_t **stack, char *str, unsigned int line)
+{
+	int i = 0;
+
+	instruction_t op[] = INSTRUCTIONS;
+
+	if (!strcmp(str, "stack"))
+	{
+		global.data_struct = 1;
+		return;
+	}
+
+	if (!strcmp(str, "queue"))
+	{
+		global.data_struct = 0;
+		return;
+	}
+
+	while (op[i].opcode)
+	{
+		if (strcmp(op[i].opcode, str) == 0)
+		{
+			op[i].f(stack, line);
+			return;
+		}
+
+		i++;
+	}
+
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, str);
+	status = EXIT_FAILURE;
+}
