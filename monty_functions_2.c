@@ -51,3 +51,17 @@ void addd(stack_t **stack, unsigned int line)
 	pop(stack, line);
 	(*stack)->n = res;
 }
+
+/**
+ * nop - This... doens't do anything lmao
+ * 
+ * @stack: Given by main, useless
+ * @line: Line count? who needs that bruh
+ *
+ * Return: what are you expecting it to return? 
+ */
+void nop(stack_t **stack, unsigned line)
+{
+	(void) stack;
+	(void) line;
+}
