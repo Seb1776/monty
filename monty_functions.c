@@ -52,9 +52,9 @@ void pall(stack_t **stack)
 
 /**
  * pint - Print the data value of the top position
- * 
+ *
  * @stack: Given stack
- * @line: Line amount 
+ * @line: Line amount
  *
  * Return: void
  */
@@ -95,6 +95,6 @@ void pop(stack_t **stack, unsigned int line)
 
 	if (!*stack)
 		return;
-	
+
 	(*stack)->prev = NULL;
 }
